@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <action
+        android:id="@+id/toLogin"
+        app:popUpTo="@id/home"
+        app:popUpToInclusive="true"
+        app:destination="@id/loginFragment"/>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.replybot.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_rulesFragment"
+            app:destination="@id/rulesFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.replybot.ui.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.example.replybot.ui.RulesFragment"
+        android:label="fragment_rules"
+        tools:layout="@layout/fragment_rules" >
+        <action
+            android:id="@+id/action_rulesFragment_to_addRulesFragment"
+            app:destination="@id/addRulesFragment" />
+        <action
+            android:id="@+id/action_rulesFragment_to_editRulesFragment"
+            app:destination="@id/editRulesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRulesFragment"
+        android:name="com.example.replybot.ui.AddRulesFragment"
+        android:label="fragment_add_rules"
+        tools:layout="@layout/fragment_add_rules" />
+    <fragment
+        android:id="@+id/editRulesFragment"
+        android:name="com.example.replybot.ui.EditRulesFragment"
+        android:label="fragment_edit_rules"
+        tools:layout="@layout/fragment_edit_rules" >
+        <argument
+            app:argType="string"
+            android:name="id"/>
+    </fragment>
+</navigation>
